@@ -12,7 +12,7 @@ type
 
     Analyze_But: TButton;
     Memo_inputFile: TMemo;
-    MemoFunctionNames: TMemo;
+    Memo1: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure MemoClear(Memo: TMemo);
     procedure Clean_ButClick(Sender: TObject);
@@ -191,39 +191,62 @@ end;
 procedure TMetrika.Clean_ButClick(Sender: TObject);
 var
   Memo: TMemo;
-  i,j,k,n, mesto, h , count:integer;
+  i,n:integer;
   ch: char;
   temp: integer;
-  tempstr,PropertyString,TempString,NameOfFunction: string;
+  tempstr: string;
 begin
+
+
+all_text := Memo_inputFile.Text;
+
+for i := 1 to length(all_text)-4 do
+     begin
+        if (all_text[i] = 'v') and (all_text[i+1] = 'o') and (all_text[i+2] = 'i') and(all_text[i+3] = 'd') then
+        begin
+        temp :=   i+5;
+        while ch<>' ' do
+            begin
+               ch :=  all_text[temp];
+               tempstr := tempstr +   ch  ;
+               temp:= temp +1;
+
+            end;
+             Memo1.Lines.Add(tempstr);
+            tempstr:= '';
+        end;
+        end;
+
+   {
+  i := 0;
+  repeat
+    n:= pos(' ',all_text);
+    if n=0 then
+    begin
+      all_tokens[i+1] := all_text;
+      all_text:= '';
+      break;
+    end;
+    all_tokens[i+1] := copy( all_text,1,n);
+    delete(all_text,1,n);
+    inc(i);
+
+  until length(all_text)<=1;
+  for I := 1 to length(all_tokens) do
+    if all_tokens[i] = 'void' then
+     Memo1.Lines.Add(all_tokens[i+1]);
+
+       }
+
   Memo := Memo_inputFile;
   MemoClear(Memo);
   Analyze_But.Enabled := True;
   Clean_But.Enabled := False;
-  for i := 0 to Memo.Lines.Count - 1 do
-  begin
-    Count := 0;
-    NameOfFunction := '';
-    PropertyString := Memo.Lines[i];
-    for j := 1 to length(PropertyString) do
-      if PropertyString[j] = signSpace then
-        break;
-    TempString := Copy(PropertyString, 1, j - 1);
-    if (TempString = 'public') or (TempString = 'private') then
-    begin
-      for k := j + 1 to length(PropertyString) do
-      begin
-        if PropertyString[k] = '(' then
-          for h := k downto 1 do
-            if PropertyString[h] = ' ' then
-              break;
-      end;
-      NameOfFunction := Copy(PropertyString, h + 1, k - h - 1);
-    end;
-    if NameOfFunction <> '' then
-      MemoFunctionNames.Lines.Add(NameOfFunction);
-    NameOfFunction := '';
-  end;
+
+
+
+
+
 end;
 
 

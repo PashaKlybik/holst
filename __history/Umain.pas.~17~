@@ -12,7 +12,6 @@ type
 
     Analyze_But: TButton;
     Memo_inputFile: TMemo;
-    MemoFunctionNames: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure MemoClear(Memo: TMemo);
     procedure Clean_ButClick(Sender: TObject);
@@ -53,9 +52,6 @@ var
   ArrayParticularOperands : array[1..findElementsCount] of String;
   ArrayAllOperands : array[1..findElementsCount] of String;
   ArrayAllOperators : array[1..findElementsCount] of String;
-
-  all_text: string;
-  all_tokens: array[1..500] of string;
 
 implementation
 uses Unit1;
@@ -191,39 +187,11 @@ end;
 procedure TMetrika.Clean_ButClick(Sender: TObject);
 var
   Memo: TMemo;
-  i,j,k,n, mesto, h , count:integer;
-  ch: char;
-  temp: integer;
-  tempstr,PropertyString,TempString,NameOfFunction: string;
 begin
   Memo := Memo_inputFile;
   MemoClear(Memo);
   Analyze_But.Enabled := True;
   Clean_But.Enabled := False;
-  for i := 0 to Memo.Lines.Count - 1 do
-  begin
-    Count := 0;
-    NameOfFunction := '';
-    PropertyString := Memo.Lines[i];
-    for j := 1 to length(PropertyString) do
-      if PropertyString[j] = signSpace then
-        break;
-    TempString := Copy(PropertyString, 1, j - 1);
-    if (TempString = 'public') or (TempString = 'private') then
-    begin
-      for k := j + 1 to length(PropertyString) do
-      begin
-        if PropertyString[k] = '(' then
-          for h := k downto 1 do
-            if PropertyString[h] = ' ' then
-              break;
-      end;
-      NameOfFunction := Copy(PropertyString, h + 1, k - h - 1);
-    end;
-    if NameOfFunction <> '' then
-      MemoFunctionNames.Lines.Add(NameOfFunction);
-    NameOfFunction := '';
-  end;
 end;
 
 
@@ -449,7 +417,7 @@ var
   volumeOfProgram, teoreticLengthOfProgram, levelQualityOfProgram, teoreticVolumeOfProgram, complexityUnderstandingOfProgram : Extended;
   complexityOfCoding, informationContentOfProgram, intellectualEffortsOfProgram, temporaryRoundResultValue : Extended;
   analyzeString : String;
-  n: integer;
+
 begin
  FormOutput.Output.cells[0,0]:= 'Теоретическая длина программы (N)';
  FormOutput.Output.cells[0,1]:= 'Уровень качества программирования (L)';
@@ -474,6 +442,7 @@ begin
   operatorsAllCount := operatorsAllCount + operatorsCount;
   operandsCount := Operands_Search(Memo, operandsAllCount);
   operandsAllCount := operandsAllCount + operandsCount;
+//
   FormOutput.Output.cells[1,7]:= IntToStr(operatorsAllCount);
   FormOutput.Output.cells[1,8] := IntToStr(operandsAllCount);
 
@@ -545,17 +514,10 @@ begin
   temporaryRoundResultValue := RoundTo(informationContentOfProgram, -digitThree);
   FormOutput.Output.cells[1,5] := FloatToStr(temporaryRoundResultValue);
 
-
-
-
-
   intellectualEffortsOfProgram := teoreticLengthOfProgram * Log2(dictionaryOfProgram/levelQualityOfProgram);
   temporaryRoundResultValue := RoundTo(intellectualEffortsOfProgram, -digitThree);
   FormOutput.Output.cells[1,6]:= FloatToStr(temporaryRoundResultValue);
    FormOutput.Show;
-
-
-
 end;
 
 end.

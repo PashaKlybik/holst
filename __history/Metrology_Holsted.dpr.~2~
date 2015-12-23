@@ -3,13 +3,13 @@ program Metrology_Holsted;
 uses
   Forms,
   Umain in 'Umain.pas' {Metrika},
-  Unit1 in 'Unit1.pas' {FormOutput};
+  Unit1 in 'Unit1.pas' {Output};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TMetrika, Metrika);
-  Application.CreateForm(TFormOutput, FormOutput);
+  Application.CreateForm(TOutput, Output);
   Application.Run;
 end.

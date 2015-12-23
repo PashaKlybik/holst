@@ -3,8 +3,8 @@ object Metrika: TMetrika
   Top = 218
   BorderIcons = [biSystemMenu]
   Caption = #1040#1085#1072#1083#1080#1079' '#1082#1086#1076#1072' '#1087#1086' '#1084#1077#1090#1088#1080#1082#1077' '#1061#1086#1083#1089#1090#1077#1076#1072
-  ClientHeight = 672
-  ClientWidth = 1294
+  ClientHeight = 679
+  ClientWidth = 1213
   Color = clSilver
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,19 +15,6 @@ object Metrika: TMetrika
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Label_Class1: TLabel
-    Left = 8
-    Top = 8
-    Width = 50
-    Height = 19
-    Caption = 'Class1:'
-    Font.Charset = RUSSIAN_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
   object Label_UniqueOperator: TLabel
     Left = 600
     Top = 488
@@ -210,10 +197,56 @@ object Metrika: TMetrika
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Memo_Class1: TMemo
-    Left = 8
+  object Clean_But: TButton
+    Left = 1000
+    Top = 584
+    Width = 161
+    Height = 41
+    Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1082#1086#1076
+    TabOrder = 0
+    OnClick = Clean_ButClick
+  end
+  object Edit_UniqueOperator: TEdit
+    Left = 648
+    Top = 512
+    Width = 161
+    Height = 21
+    TabOrder = 1
+  end
+  object Edit_UniqueOperand: TEdit
+    Left = 648
+    Top = 568
+    Width = 161
+    Height = 21
+    TabOrder = 2
+  end
+  object Edit_AllOperator: TEdit
+    Left = 648
+    Top = 368
+    Width = 161
+    Height = 21
+    TabOrder = 3
+  end
+  object Edit_AllOperand: TEdit
+    Left = 648
+    Top = 424
+    Width = 161
+    Height = 21
+    TabOrder = 4
+  end
+  object Analyze_But: TButton
+    Left = 1000
+    Top = 624
+    Width = 161
+    Height = 41
+    Caption = #1040#1085#1072#1083#1080#1079#1080#1088#1086#1074#1072#1090#1100' '#1082#1086#1076
+    TabOrder = 5
+    OnClick = Analyze_ButClick
+  end
+  object Memo_Class2: TMemo
+    Left = 432
     Top = 32
-    Width = 393
+    Width = 433
     Height = 241
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -224,53 +257,7 @@ object Metrika: TMetrika
       '')
     ParentFont = False
     ScrollBars = ssBoth
-    TabOrder = 0
-  end
-  object Clean_But: TButton
-    Left = 1000
-    Top = 584
-    Width = 161
-    Height = 41
-    Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1082#1086#1076
-    TabOrder = 1
-    OnClick = Clean_ButClick
-  end
-  object Edit_UniqueOperator: TEdit
-    Left = 648
-    Top = 512
-    Width = 161
-    Height = 21
-    TabOrder = 2
-  end
-  object Edit_UniqueOperand: TEdit
-    Left = 648
-    Top = 568
-    Width = 161
-    Height = 21
-    TabOrder = 3
-  end
-  object Edit_AllOperator: TEdit
-    Left = 648
-    Top = 368
-    Width = 161
-    Height = 21
-    TabOrder = 4
-  end
-  object Edit_AllOperand: TEdit
-    Left = 648
-    Top = 424
-    Width = 161
-    Height = 21
-    TabOrder = 5
-  end
-  object Analyze_But: TButton
-    Left = 1000
-    Top = 624
-    Width = 161
-    Height = 41
-    Caption = #1040#1085#1072#1083#1080#1079#1080#1088#1086#1074#1072#1090#1100' '#1082#1086#1076
     TabOrder = 6
-    OnClick = Analyze_ButClick
   end
   object Edit_Dictionary: TEdit
     Left = 1016

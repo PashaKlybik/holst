@@ -200,11 +200,11 @@ begin
   MemoClear(Memo);
   Analyze_But.Enabled := True;
   Clean_But.Enabled := False;
-  for i := 0 to Memo.Lines.Count - 1 do
+  for i := 0 to Memo_inputFile.Lines.Count - 1 do
   begin
     Count := 0;
     NameOfFunction := '';
-    PropertyString := Memo.Lines[i];
+    PropertyString := Memo_inputFile.Lines[i];
     for j := 1 to length(PropertyString) do
       if PropertyString[j] = signSpace then
         break;
@@ -214,7 +214,7 @@ begin
       for k := j + 1 to length(PropertyString) do
       begin
         if PropertyString[k] = '(' then
-          for h := k downto 1 do
+          for h := k downto 0 do
             if PropertyString[h] = ' ' then
               break;
       end;

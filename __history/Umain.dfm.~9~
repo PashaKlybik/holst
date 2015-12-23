@@ -3,8 +3,8 @@ object Metrika: TMetrika
   Top = 218
   BorderIcons = [biSystemMenu]
   Caption = 'Halstead metrics'
-  ClientHeight = 500
-  ClientWidth = 559
+  ClientHeight = 505
+  ClientWidth = 890
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -31,8 +31,8 @@ object Metrika: TMetrika
     OnClick = Clean_ButClick
   end
   object Analyze_But: TButton
-    Left = 432
-    Top = 454
+    Left = 756
+    Top = 455
     Width = 121
     Height = 41
     Caption = 'Procseed'
@@ -48,7 +48,7 @@ object Metrika: TMetrika
   object Memo_inputFile: TMemo
     Left = 8
     Top = 8
-    Width = 297
+    Width = 433
     Height = 441
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -61,9 +61,9 @@ object Metrika: TMetrika
     TabOrder = 2
   end
   object MemoFunctionNames: TMemo
-    Left = 319
-    Top = 7
-    Width = 234
+    Left = 447
+    Top = 8
+    Width = 430
     Height = 441
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

@@ -1,0 +1,74 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ActnList, StdCtrls, Math, Vcl.Grids;
+
+type
+  TFormOutput = class(TForm)
+    Label_TeoreticLength: TLabel;
+    Label_TeoreticVolume: TLabel;
+    Label_LevelOfQuality: TLabel;
+    Label_ComplexityOfCoding: TLabel;
+    Label_ComplexityUnderstanding: TLabel;
+    Label_InformationContent: TLabel;
+    Label_IntellectualEfforts: TLabel;
+    Edit_TeoreticLength: TEdit;
+    Edit_TeoreticVolume: TEdit;
+    EditLevelOfQuality: TEdit;
+    Edit_ComplexityOfCoding: TEdit;
+    Edit_ComplexityUnderstanding: TEdit;
+    Edit_InformationContent: TEdit;
+    Edit_IntellectualEfforts: TEdit;
+    Label_UniqueOperator: TLabel;
+    Label_UniqueOperand: TLabel;
+    Label_Operator: TLabel;
+    Label_Operand: TLabel;
+    Edit_UniqueOperator: TEdit;
+    Edit_UniqueOperand: TEdit;
+    Edit_AllOperator: TEdit;
+    Edit_AllOperand: TEdit;
+    Label_Volume: TLabel;
+    Label_Dictionary: TLabel;
+    Label_Length: TLabel;
+    Edit_Dictionary: TEdit;
+    Edit_Length: TEdit;
+    Edit_Volume: TEdit;
+    Output: TStringGrid;
+    procedure OutputClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormOutput: TFormOutput;
+
+implementation
+    uses Umain;
+{$R *.dfm}
+
+procedure TFormOutput.OutputClick(Sender: TObject);
+begin
+ Output.cells[0,0]:= Label_TeoreticLength.Caption;
+ Output.cells[0,1]:= Label_LevelOfQuality.Caption;
+ Output.cells[0,2]:= Label_TeoreticVolume.Caption;
+ Output.cells[0,3]:= Label_ComplexityUnderstanding.Caption;
+ Output.cells[0,4]:= Label_ComplexityOfCoding.Caption;
+ Output.cells[0,5]:= Label_InformationContent.Caption;
+ Output.cells[0,6]:= Label_IntellectualEfforts.Caption;
+ Output.cells[0,7]:= Label_Operator.Caption;
+ Output.cells[0,8]:= Label_Operand.Caption;
+ Output.cells[0,9]:= Label_UniqueOperator.Caption;
+ Output.cells[0,10]:= Label_UniqueOperand.Caption;
+ Output.cells[0,11]:= Label_Length.Caption;
+ Output.cells[0,12]:= Label_Dictionary.Caption;
+ Output.cells[0,13]:= Label_Volume.Caption;
+
+
+end;
+
+end.
